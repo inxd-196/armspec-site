@@ -1,9 +1,11 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function Home() {
   const [form, setForm] = useState({ name: "", phone: "" });
   const [status, setStatus] = useState({ type: "idle", message: "" });
+
+  const year = useMemo(() => new Date().getFullYear(), []);
 
   async function submit(e) {
     e.preventDefault();
@@ -22,303 +24,107 @@ export default function Home() {
       setStatus({ type: "success", message: "Заявка отправлена. Мы свяжемся с вами." });
       setForm({ name: "", phone: "" });
     } catch {
-      setStatus({
-        type: "error",
-        message: "Не удалось отправить. Попробуйте позже или позвоните нам.",
-      });
+      setStatus({ type: "error", message: "Не удалось отправить. Попробуйте позже или позвоните нам." });
     }
   }
 
   return (
     <>
       <Head>
-        <title>АРМСПЕЦ — аренда спецтехники, асфальтирование, благоустройство</title>
+        <title>АРМСПЕЦ — аренда спецтехники и асфальтирование</title>
         <meta
           name="description"
-          content="АРМСПЕЦ: аренда самосвалов и тракторов, асфальтирование и благоустройство. Заявка за 30 секунд."
+          content="АРМСПЕЦ: аренда самосвалов и тракторов, асфальтирование и благоустройство. Быстрая заявка — имя и телефон."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Шрифт — современный */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <div className="page">
+        {/* Top bar */}
         <header className="header">
-          <div className="container headerInner">
-            <div className="brand">
-              <div className="logoMark" aria-hidden />
+          <div className="wrap headerInner">
+            <a className="brand" href="#top" aria-label="АРМСПЕЦ">
+              <div className="logoMark" />
               <div className="brandText">
                 <div className="brandName">АРМСПЕЦ</div>
-                <div className="brandTag">строительная компания</div>
+                <div className="brandSub">строительная компания</div>
               </div>
-            </div>
+            </a>
 
             <nav className="nav">
               <a href="#rent">Аренда техники</a>
-              <a href="#works">Асфальтирование</a>
+              <a href="#works">Работы</a>
               <a href="#why">Почему мы</a>
               <a href="#how">Как работаем</a>
               <a href="#contacts">Контакты</a>
             </nav>
 
-            <div className="cta">
-              <a className="phone" href="tel:+79533884273">+7 (953) 388-42-73</a>
-              <a className="btn btnPrimary" href="#contacts">Оставить заявку</a>
+            <div className="headerCta">
+              <a className="phone" href="tel:+79533884273">
+                +7 (953) 388-42-73
+              </a>
+              <a className="btn btnPrimary" href="#contacts">
+                Оставить заявку
+              </a>
             </div>
           </div>
         </header>
 
-        <main>
+        <main id="top">
           {/* HERO */}
           <section className="hero">
-            <div className="heroBg" aria-hidden />
-            <div className="container heroInner">
-              <div className="heroText">
-                <div className="pill">Самосвалы • Тракторы • Асфальтирование • Благоустройство</div>
-                <h1>
-                  АРМСПЕЦ — строительная компания
-                  <span className="accent"> для задач на площадке</span>
+            <div className="wrap heroInner">
+              <div className="heroLeft">
+                <div className="kicker">
+                  Самосвалы • Тракторы • Асфальтирование • Благоустройство
+                </div>
+
+                <h1 className="h1">
+                  Два направления <span className="accent">в одном месте</span>
                 </h1>
+
                 <p className="lead">
-                  Два направления в одном месте: аренда спецтехники и строительные работы.
-                  Оставьте контакты — уточним задачу и предложим подходящий вариант.
+                  Аренда спецтехники и строительные работы. Оставьте контакты — уточним задачу
+                  и предложим понятный вариант без “сказок”.
                 </p>
 
-                <div className="heroBtns">
-                  <a className="btn btnPrimary" href="#rent">Аренда спецтехники</a>
-                  <a className="btn btnGhost" href="#works">Асфальтирование и благоустройство</a>
+                <div className="heroActions">
+                  <a className="btn btnPrimary" href="#rent">
+                    Аренда спецтехники
+                  </a>
+                  <a className="btn btnSoft" href="#works">
+                    Асфальтирование и благоустройство
+                  </a>
                 </div>
 
-                <div className="heroMeta">
-                  <div className="metaCard">
-                    <div className="metaTitle">Связь</div>
-                    <div className="metaText">в Telegram — без CRM и “потерянных заявок”</div>
+                <div className="trustRow">
+                  <div className="trustItem">
+                    <div className="trustTitle">Быстрый контакт</div>
+                    <div className="trustText">Заявка прилетает в Telegram (подключим дальше)</div>
                   </div>
-                  <div className="metaCard">
-                    <div className="metaTitle">Формат</div>
-                    <div className="metaText">разовые работы или регулярные заявки</div>
+                  <div className="trustItem">
+                    <div className="trustTitle">Понятные условия</div>
+                    <div className="trustText">Согласуем объём, формат, порядок работ</div>
                   </div>
-                  <div className="metaCard">
-                    <div className="metaTitle">Документы</div>
-                    <div className="metaText">по запросу: договор / закрывающие</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="heroPanel">
-                <div className="panelTitle">Быстрая заявка</div>
-                <div className="panelDesc">Имя и телефон — и мы перезвоним.</div>
-
-                <form onSubmit={submit} className="form">
-                  <label className="field">
-                    <span>Имя</span>
-                    <input
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="Например, Иван"
-                      autoComplete="name"
-                    />
-                  </label>
-
-                  <label className="field">
-                    <span>Телефон</span>
-                    <input
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+7 (___) ___-__-__"
-                      inputMode="tel"
-                      autoComplete="tel"
-                      required
-                    />
-                  </label>
-
-                  <button className="btn btnPrimary btnFull" type="submit" disabled={status.type === "loading"}>
-                    {status.type === "loading" ? "Отправляем..." : "Отправить"}
-                  </button>
-
-                  <div className={`status ${status.type}`}>{status.message}</div>
-
-                  <div className="fineprint">
-                    Нажимая «Отправить», вы соглашаетесь на обработку контактных данных для связи.
-                  </div>
-                </form>
-              </div>
-            </div>
-          </section>
-
-          {/* TWO DIRECTIONS */}
-          <section className="section" id="rent">
-            <div className="container">
-              <div className="sectionHead">
-                <h2>Аренда спецтехники</h2>
-                <p>Основной парк: самосвалы и тракторы. Подберём технику под задачу и условия площадки.</p>
-              </div>
-
-              <div className="cards">
-                <div className="card">
-                  <div className="cardTitle">Самосвалы</div>
-                  <div className="cardText">
-                    Вывоз/перевозка сыпучих материалов, грунта, щебня. Уточним объём и логистику.
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="cardTitle">Тракторы</div>
-                  <div className="cardText">
-                    Планировка, расчистка, подготовка основания. Учитываем подъезд и состояние грунта.
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="cardTitle">Под задачу</div>
-                  <div className="cardText">
-                    Если нужен смешанный комплект (техника + работы) — соберём решение и согласуем порядок.
+                  <div className="trustItem">
+                    <div className="trustTitle">По делу</div>
+                    <div className="trustText">Без громких обещаний и “идеальных” сроков</div>
                   </div>
                 </div>
               </div>
 
-              <div className="sectionCta">
-                <a className="btn btnPrimary" href="#contacts">Запросить технику</a>
-                <a className="btn btnLink" href="tel:+79533884273">или позвонить: +7 (953) 388-42-73</a>
-              </div>
-            </div>
-          </section>
-
-          <section className="section alt" id="works">
-            <div className="container">
-              <div className="sectionHead">
-                <h2>Асфальтирование и благоустройство</h2>
-                <p>Работы по покрытию и подготовке территории: от оценки объёма до сдачи результата.</p>
-              </div>
-
-              <div className="cards">
-                <div className="card">
-                  <div className="cardTitle">Асфальтирование</div>
-                  <div className="cardText">
-                    Уточняем площадь, основание и требования к слою. Согласуем последовательность работ.
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="cardTitle">Благоустройство</div>
-                  <div className="cardText">
-                    Подготовка площадки, планировка, выравнивание, сопутствующие работы по территории.
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="cardTitle">Комплексно</div>
-                  <div className="cardText">
-                    Когда удобнее сделать «в одном окне»: техника + работы + вывоз — собираем план и согласуем.
-                  </div>
-                </div>
-              </div>
-
-              <div className="sectionCta">
-                <a className="btn btnPrimary" href="#contacts">Оставить заявку на работы</a>
-              </div>
-            </div>
-          </section>
-
-          {/* WHY US */}
-          <section className="section" id="why">
-            <div className="container">
-              <div className="sectionHead">
-                <h2>Почему с нами удобно</h2>
-                <p>Без громких обещаний — только то, что реально влияет на результат и спокойствие клиента.</p>
-              </div>
-
-              <div className="grid2">
-                <div className="bullet">
-                  <div className="bulletTitle">Понятная договорённость</div>
-                  <div className="bulletText">
-                    Фиксируем объём, формат и ключевые условия — чтобы не было сюрпризов по ходу.
-                  </div>
-                </div>
-                <div className="bullet">
-                  <div className="bulletTitle">Техника под задачу</div>
-                  <div className="bulletText">
-                    Подбираем самосвал/трактор под условия площадки, подъезд и объём работ.
-                  </div>
-                </div>
-                <div className="bullet">
-                  <div className="bulletTitle">Связь по делу</div>
-                  <div className="bulletText">
-                    Держим контакт в процессе: подтверждаем старт, уточняем нюансы, не “пропадаем”.
-                  </div>
-                </div>
-                <div className="bullet">
-                  <div className="bulletTitle">Документы по запросу</div>
-                  <div className="bulletText">
-                    Если нужен договор или закрывающие — заранее согласуем формат и подготовим.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* HOW WE WORK */}
-          <section className="section alt" id="how">
-            <div className="container">
-              <div className="sectionHead">
-                <h2>Как работаем</h2>
-                <p>Простой процесс: заявка → оценка → выполнение → закрытие.</p>
-              </div>
-
-              <div className="steps">
-                <div className="step">
-                  <div className="stepNum">01</div>
-                  <div>
-                    <div className="stepTitle">Заявка</div>
-                    <div className="stepText">Оставляете телефон или звоните — уточняем задачу и адрес.</div>
-                  </div>
-                </div>
-                <div className="step">
-                  <div className="stepNum">02</div>
-                  <div>
-                    <div className="stepTitle">Оценка</div>
-                    <div className="stepText">Согласуем технику/объём, ориентир по срокам и условиям.</div>
-                  </div>
-                </div>
-                <div className="step">
-                  <div className="stepNum">03</div>
-                  <div>
-                    <div className="stepTitle">Выполнение</div>
-                    <div className="stepText">Приезжаем в согласованное время, делаем работу, держим связь.</div>
-                  </div>
-                </div>
-                <div className="step">
-                  <div className="stepNum">04</div>
-                  <div>
-                    <div className="stepTitle">Закрытие</div>
-                    <div className="stepText">Подтверждаем объём, передаём документы (если нужно), остаёмся на связи.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* CONTACTS */}
-          <section className="section" id="contacts">
-            <div className="container">
-              <div className="contactGrid">
-                <div>
-                  <h2 className="contactTitle">Контакты</h2>
-                  <p className="contactText">
-                    Быстрее всего — оставить телефон: заявка придёт в Telegram и мы сразу увидим номер.
-                  </p>
-
-                  <div className="contactBox">
-                    <div className="contactRow">
-                      <div className="contactLabel">Телефон</div>
-                      <a className="contactValue" href="tel:+79533884273">+7 (953) 388-42-73</a>
-                    </div>
-                    <div className="contactRow">
-                      <div className="contactLabel">Email</div>
-                      <a className="contactValue" href="mailto:oooarmspec1317@mail.ru">
-                        oooarmspec1317@mail.ru
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="contactForm">
-                  <div className="panelTitle">Оставить заявку</div>
-                  <div className="panelDesc">Имя и телефон — остальное уточним по звонку.</div>
+              <div className="heroRight">
+                <div className="heroCard">
+                  <div className="cardTitle">Быстрая заявка</div>
+                  <div className="cardDesc">Имя и телефон — и мы перезвоним.</div>
 
                   <form onSubmit={submit} className="form">
                     <label className="field">
@@ -326,7 +132,7 @@ export default function Home() {
                       <input
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Как к вам обращаться"
+                        placeholder="Например, Иван"
                         autoComplete="name"
                       />
                     </label>
@@ -350,19 +156,267 @@ export default function Home() {
                     <div className={`status ${status.type}`}>{status.message}</div>
 
                     <div className="fineprint">
-                      Можно и без формы — просто позвоните. Мы на связи.
+                      Нажимая «Отправить», вы соглашаетесь на обработку контактных данных для связи.
                     </div>
                   </form>
+                </div>
+
+                {/* ФОТО-заглушка: позже вставим реальное фото */}
+                <div className="heroPhoto" aria-hidden>
+                  <div className="heroPhotoOverlay" />
+                  <div className="heroPhotoLabel">Фото техники</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SERVICES SPLIT */}
+          <section className="section" id="rent">
+            <div className="wrap">
+              <div className="sectionHead">
+                <h2>Аренда спецтехники</h2>
+                <p>Самосвалы и тракторы. Подберём технику под условия площадки и задачу.</p>
+              </div>
+
+              <div className="grid3">
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Самосвалы</div>
+                    <div className="chip">Перевозка/вывоз</div>
+                  </div>
+                  <div className="tileText">
+                    Грунт, щебень, сыпучие материалы. Уточним объём, плечо и порядок работ.
+                  </div>
+                </div>
+
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Тракторы</div>
+                    <div className="chip">Планировка</div>
+                  </div>
+                  <div className="tileText">
+                    Подготовка территории, расчистка, выравнивание. Учитываем подъезд и грунт.
+                  </div>
+                </div>
+
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Комплекс</div>
+                    <div className="chip">Техника + работы</div>
+                  </div>
+                  <div className="tileText">
+                    Если удобнее “в одном окне”: техника, вывоз, подготовка — соберём план и согласуем.
+                  </div>
+                </div>
+              </div>
+
+              <div className="sectionActions">
+                <a className="btn btnPrimary" href="#contacts">
+                  Запросить технику
+                </a>
+                <a className="btn btnLink" href="tel:+79533884273">
+                  или позвонить: +7 (953) 388-42-73
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section className="section sectionAlt" id="works">
+            <div className="wrap">
+              <div className="sectionHead">
+                <h2>Асфальтирование и благоустройство</h2>
+                <p>Оцениваем объём и условия, согласуем порядок работ и выполняем без лишней суеты.</p>
+              </div>
+
+              <div className="grid3">
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Асфальтирование</div>
+                    <div className="chip">Покрытие</div>
+                  </div>
+                  <div className="tileText">
+                    Уточняем площадь, основание и требования. Согласуем последовательность работ.
+                  </div>
+                </div>
+
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Благоустройство</div>
+                    <div className="chip">Территория</div>
+                  </div>
+                  <div className="tileText">
+                    Планировка, подготовка площадки, сопутствующие работы по территории.
+                  </div>
+                </div>
+
+                <div className="tile">
+                  <div className="tileTop">
+                    <div className="tileTitle">Подготовка</div>
+                    <div className="chip">Основание</div>
+                  </div>
+                  <div className="tileText">
+                    Когда важно “сделать правильно” до покрытия — согласуем базу и этапы.
+                  </div>
+                </div>
+              </div>
+
+              <div className="sectionActions">
+                <a className="btn btnPrimary" href="#contacts">
+                  Оставить заявку на работы
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* WHY */}
+          <section className="section" id="why">
+            <div className="wrap">
+              <div className="sectionHead">
+                <h2>Почему с нами удобно</h2>
+                <p>Без громких обещаний — только то, что реально помогает заказчику.</p>
+              </div>
+
+              <div className="grid2">
+                <div className="note">
+                  <div className="noteTitle">Понятная договорённость</div>
+                  <div className="noteText">
+                    Фиксируем объём и условия. Если есть нюансы по срокам/доступу — говорим заранее.
+                  </div>
+                </div>
+                <div className="note">
+                  <div className="noteTitle">Техника под задачу</div>
+                  <div className="noteText">
+                    Подбираем вариант под площадку и объём, а не “что свободно”.
+                  </div>
+                </div>
+                <div className="note">
+                  <div className="noteTitle">Связь по делу</div>
+                  <div className="noteText">
+                    Подтверждаем старт, уточняем детали в процессе, не “исчезаем”.
+                  </div>
+                </div>
+                <div className="note">
+                  <div className="noteTitle">Документы по запросу</div>
+                  <div className="noteText">
+                    Если нужен договор/закрывающие — заранее согласуем формат и подготовим.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* HOW */}
+          <section className="section sectionAlt" id="how">
+            <div className="wrap">
+              <div className="sectionHead">
+                <h2>Как работаем</h2>
+                <p>Простой процесс: заявка → оценка → выполнение → закрытие.</p>
+              </div>
+
+              <div className="steps">
+                <div className="step">
+                  <div className="stepNum">01</div>
+                  <div>
+                    <div className="stepTitle">Заявка</div>
+                    <div className="stepText">Оставляете телефон или звоните — уточняем задачу и адрес.</div>
+                  </div>
+                </div>
+                <div className="step">
+                  <div className="stepNum">02</div>
+                  <div>
+                    <div className="stepTitle">Оценка</div>
+                    <div className="stepText">Согласуем технику/объём и порядок работ. Если нужно — договоримся о выезде.</div>
+                  </div>
+                </div>
+                <div className="step">
+                  <div className="stepNum">03</div>
+                  <div>
+                    <div className="stepTitle">Выполнение</div>
+                    <div className="stepText">Работаем в согласованное время, держим связь и уточняем детали по ходу.</div>
+                  </div>
+                </div>
+                <div className="step">
+                  <div className="stepNum">04</div>
+                  <div>
+                    <div className="stepTitle">Закрытие</div>
+                    <div className="stepText">Подтверждаем объём и формат, передаём документы (если нужно), остаёмся на связи.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CONTACTS */}
+          <section className="section" id="contacts">
+            <div className="wrap">
+              <div className="contact">
+                <div className="contactLeft">
+                  <h2>Контакты</h2>
+                  <p>
+                    Быстрее всего — оставить телефон: мы увидим заявку и перезвоним. Можно просто позвонить сразу.
+                  </p>
+
+                  <div className="contactBox">
+                    <div className="row">
+                      <div className="muted">Телефон</div>
+                      <a className="strong" href="tel:+79533884273">+7 (953) 388-42-73</a>
+                    </div>
+                    <div className="row">
+                      <div className="muted">Email</div>
+                      <a className="strong" href="mailto:oooarmspec1317@mail.ru">oooarmspec1317@mail.ru</a>
+                    </div>
+                  </div>
+
+                  <div className="smallMuted">
+                    * Telegram-получение заявок подключим следующим шагом (чтобы всё приходило тебе в чат).
+                  </div>
+                </div>
+
+                <div className="contactRight">
+                  <div className="heroCard">
+                    <div className="cardTitle">Оставить заявку</div>
+                    <div className="cardDesc">Имя и телефон — остальное уточним по звонку.</div>
+
+                    <form onSubmit={submit} className="form">
+                      <label className="field">
+                        <span>Имя</span>
+                        <input
+                          value={form.name}
+                          onChange={(e) => setForm({ ...form, name: e.target.value })}
+                          placeholder="Как к вам обращаться"
+                          autoComplete="name"
+                        />
+                      </label>
+
+                      <label className="field">
+                        <span>Телефон</span>
+                        <input
+                          value={form.phone}
+                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                          placeholder="+7 (___) ___-__-__"
+                          inputMode="tel"
+                          autoComplete="tel"
+                          required
+                        />
+                      </label>
+
+                      <button className="btn btnPrimary btnFull" type="submit" disabled={status.type === "loading"}>
+                        {status.type === "loading" ? "Отправляем..." : "Отправить"}
+                      </button>
+
+                      <div className={`status ${status.type}`}>{status.message}</div>
+
+                      <div className="fineprint">Можно и без формы — просто позвоните.</div>
+                    </form>
+                  </div>
                 </div>
               </div>
 
               <footer className="footer">
-                <div>© {new Date().getFullYear()} АРМСПЕЦ</div>
-                <div className="footerRight">
-                  <a href="#rent">Аренда</a>
-                  <span>·</span>
-                  <a href="#works">Работы</a>
-                  <span>·</span>
+                <div>© {year} АРМСПЕЦ</div>
+                <div className="footerLinks">
+                  <a href="#rent">Аренда</a><span>·</span>
+                  <a href="#works">Работы</a><span>·</span>
                   <a href="#contacts">Контакты</a>
                 </div>
               </footer>
@@ -372,214 +426,198 @@ export default function Home() {
       </div>
 
       <style jsx>{`
-  :global(html, body) { margin: 0; padding: 0; background: #ffffff; }
-  :global(*) { box-sizing: border-box; }
-  :global(a) { color: inherit; text-decoration: none; }
-  :global(input) { font: inherit; }
-  :global(body) { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #0f172a; }
+        :global(html, body) { margin: 0; padding: 0; background: #ffffff; }
+        :global(*) { box-sizing: border-box; }
+        :global(a) { color: inherit; text-decoration: none; }
+        :global(input) { font: inherit; }
+        :global(body) { font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #0b1220; }
 
-  .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+        .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+        .page { background: #ffffff; }
 
-  /* Header */
-  .header {
-    position: sticky; top: 0; z-index: 20;
-    background: rgba(255,255,255,0.82);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-  }
-  .headerInner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 16px; }
-  .brand { display: flex; align-items: center; gap: 12px; min-width: 220px; }
-  .logoMark { width: 34px; height: 34px; border-radius: 10px; background: #d01919; }
-  .brandName { font-weight: 800; letter-spacing: 0.2px; }
-  .brandTag { color: rgba(15,23,42,0.60); font-size: 12px; margin-top: 2px; }
+        /* Header */
+        .header {
+          position: sticky; top: 0; z-index: 30;
+          background: rgba(255,255,255,0.86);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(11,18,32,0.08);
+        }
+        .headerInner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+        .brand { display: flex; gap: 12px; align-items: center; }
+        .logoMark { width: 34px; height: 34px; border-radius: 10px; background: #d01919; }
+        .brandName { font-weight: 900; letter-spacing: 0.2px; }
+        .brandSub { font-size: 12px; color: rgba(11,18,32,0.60); margin-top: 2px; }
 
-  .nav { display: none; gap: 18px; color: rgba(15,23,42,0.70); font-size: 14px; font-weight: 600; }
-  .nav a:hover { color: #0f172a; }
+        .nav { display: none; gap: 18px; color: rgba(11,18,32,0.72); font-size: 14px; font-weight: 700; }
+        .nav a:hover { color: #0b1220; }
 
-  .cta { display: flex; align-items: center; gap: 12px; }
-  .phone { color: rgba(15,23,42,0.85); font-weight: 700; font-size: 14px; }
+        .headerCta { display: flex; align-items: center; gap: 12px; }
+        .phone { font-weight: 900; color: rgba(11,18,32,0.86); font-size: 14px; }
 
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 12px 14px; border-radius: 12px;
-    border: 1px solid rgba(15,23,42,0.12);
-    font-weight: 800;
-    transition: transform .08s ease, background .12s ease, border-color .12s ease;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btnPrimary { background: #d01919; border-color: #d01919; color: #fff; }
-  .btnPrimary:hover { background: #b71414; border-color: #b71414; }
-  .btnGhost { background: #ffffff; color: #0f172a; }
-  .btnGhost:hover { background: rgba(15,23,42,0.03); }
-  .btnLink { border: none; padding: 10px 0; color: rgba(15,23,42,0.75); font-weight: 800; }
-  .btnFull { width: 100%; }
+        .btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          padding: 12px 14px;
+          border-radius: 12px;
+          border: 1px solid rgba(11,18,32,0.12);
+          font-weight: 900;
+          transition: transform .08s ease, background .12s ease, border-color .12s ease;
+        }
+        .btn:active { transform: translateY(1px); }
+        .btnPrimary { background: #d01919; border-color: #d01919; color: #fff; box-shadow: 0 14px 28px rgba(208,25,25,0.18); }
+        .btnPrimary:hover { background: #b71414; border-color: #b71414; }
+        .btnSoft { background: rgba(11,18,32,0.04); color: #0b1220; }
+        .btnSoft:hover { background: rgba(11,18,32,0.07); }
+        .btnLink { border: none; padding: 10px 0; color: rgba(11,18,32,0.70); font-weight: 900; }
+        .btnFull { width: 100%; }
 
-  /* Hero */
-  .hero { padding: 44px 0 28px; background: #ffffff; }
-  .heroBg { display: none; }
+        /* Hero */
+        .hero { padding: 44px 0 18px; background: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #f6f7fb 56%, #f6f7fb 100%); }
+        .heroInner { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 18px; align-items: start; }
+        .heroLeft { padding: 12px 0; }
+        .kicker {
+          display: inline-flex;
+          padding: 8px 12px;
+          border-radius: 999px;
+          background: rgba(11,18,32,0.04);
+          border: 1px solid rgba(11,18,32,0.10);
+          color: rgba(11,18,32,0.72);
+          font-size: 13px;
+          font-weight: 800;
+        }
+        .h1 {
+          margin: 14px 0 10px;
+          font-size: 48px;
+          line-height: 1.04;
+          letter-spacing: -1.2px;
+          font-weight: 900;
+        }
+        .accent { color: #d01919; }
+        .lead { margin: 0 0 18px; max-width: 62ch; color: rgba(11,18,32,0.72); font-size: 16px; line-height: 1.65; }
+        .heroActions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
 
-  .heroInner {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 22px;
-    align-items: start;
-    padding: 24px 0;
-  }
+        .trustRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .trustItem { background: #fff; border: 1px solid rgba(11,18,32,0.10); border-radius: 16px; padding: 12px; }
+        .trustTitle { font-weight: 900; font-size: 13px; margin-bottom: 4px; }
+        .trustText { color: rgba(11,18,32,0.68); font-size: 12px; line-height: 1.35; }
 
-  .heroText { padding: 6px 0; }
-  .pill {
-    display: inline-flex;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(15,23,42,0.04);
-    border: 1px solid rgba(15,23,42,0.10);
-    color: rgba(15,23,42,0.72);
-    font-size: 13px;
-    font-weight: 700;
-  }
+        .heroRight { display: grid; gap: 12px; }
+        .heroCard {
+          background: #fff;
+          border: 1px solid rgba(11,18,32,0.12);
+          border-radius: 18px;
+          padding: 16px;
+          box-shadow: 0 18px 40px rgba(11,18,32,0.08);
+        }
+        .cardTitle { font-weight: 900; font-size: 16px; }
+        .cardDesc { margin-top: 6px; color: rgba(11,18,32,0.70); font-size: 13px; }
 
-  h1 {
-    margin: 14px 0 10px;
-    font-size: 44px;
-    line-height: 1.06;
-    letter-spacing: -1px;
-    font-weight: 900;
-  }
-  .accent { color: #0f172a; }
+        .form { margin-top: 12px; display: grid; gap: 10px; }
+        .field { display: grid; gap: 6px; }
+        .field span { color: rgba(11,18,32,0.70); font-size: 12px; font-weight: 800; }
+        .field input {
+          width: 100%;
+          padding: 12px 12px;
+          border-radius: 12px;
+          border: 1px solid rgba(11,18,32,0.14);
+          background: #fff;
+          color: #0b1220;
+          outline: none;
+        }
+        .field input:focus { border-color: rgba(208,25,25,0.8); box-shadow: 0 0 0 4px rgba(208,25,25,0.14); }
 
-  .lead {
-    margin: 0 0 18px;
-    color: rgba(15,23,42,0.72);
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: 62ch;
-  }
+        .status { min-height: 16px; font-size: 12px; color: rgba(11,18,32,0.70); }
+        .status.success { color: #15803d; }
+        .status.error { color: #b91c1c; }
+        .fineprint { color: rgba(11,18,32,0.55); font-size: 11px; line-height: 1.35; }
 
-  .heroBtns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+        .heroPhoto {
+          height: 180px;
+          border-radius: 18px;
+          border: 1px solid rgba(11,18,32,0.12);
+          overflow: hidden;
+          background:
+            linear-gradient(135deg, rgba(11,18,32,0.08), rgba(11,18,32,0.02)),
+            repeating-linear-gradient(90deg, rgba(11,18,32,0.08) 0, rgba(11,18,32,0.08) 1px, transparent 1px, transparent 14px);
+          position: relative;
+        }
+        .heroPhotoOverlay {
+          position: absolute; inset: 0;
+          background: radial-gradient(700px 220px at 30% 20%, rgba(208,25,25,0.18), transparent 55%);
+          pointer-events: none;
+        }
+        .heroPhotoLabel {
+          position: absolute; left: 14px; bottom: 12px;
+          padding: 8px 10px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.86);
+          border: 1px solid rgba(11,18,32,0.10);
+          font-weight: 900;
+          font-size: 12px;
+        }
 
-  .heroMeta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .metaCard {
-    padding: 12px;
-    border-radius: 14px;
-    background: #fff;
-    border: 1px solid rgba(15,23,42,0.10);
-  }
-  .metaTitle { font-weight: 900; font-size: 13px; margin-bottom: 4px; }
-  .metaText { color: rgba(15,23,42,0.68); font-size: 12px; line-height: 1.35; }
+        /* Sections */
+        .section { padding: 54px 0; background: #f6f7fb; }
+        .sectionAlt { background: #ffffff; }
+        .sectionHead h2 { margin: 0; font-size: 30px; letter-spacing: -0.4px; font-weight: 900; }
+        .sectionHead p { margin: 10px 0 0; color: rgba(11,18,32,0.70); max-width: 74ch; line-height: 1.65; }
 
-  /* Form panel — белая, как у нормальных сайтов */
-  .heroPanel {
-    background: #ffffff;
-    border: 1px solid rgba(15,23,42,0.12);
-    border-radius: 18px;
-    padding: 16px;
-    box-shadow: 0 18px 40px rgba(15,23,42,0.08);
-    position: sticky;
-    top: 86px;
-  }
-  .panelTitle { font-weight: 900; font-size: 16px; }
-  .panelDesc { margin-top: 6px; color: rgba(15,23,42,0.70); font-size: 13px; }
+        .grid3 { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .tile { background: #fff; border: 1px solid rgba(11,18,32,0.10); border-radius: 18px; padding: 16px; box-shadow: 0 14px 30px rgba(11,18,32,0.06); }
+        .tileTop { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+        .tileTitle { font-weight: 900; }
+        .chip {
+          padding: 7px 10px;
+          border-radius: 999px;
+          background: rgba(208,25,25,0.08);
+          color: #b71414;
+          border: 1px solid rgba(208,25,25,0.14);
+          font-weight: 900;
+          font-size: 12px;
+        }
+        .tileText { color: rgba(11,18,32,0.70); line-height: 1.6; }
 
-  .form { margin-top: 12px; display: grid; gap: 10px; }
-  .field { display: grid; gap: 6px; }
-  .field span { color: rgba(15,23,42,0.70); font-size: 12px; font-weight: 700; }
-  .field input {
-    width: 100%;
-    padding: 12px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(15,23,42,0.14);
-    background: #ffffff;
-    color: #0f172a;
-    outline: none;
-  }
-  .field input:focus {
-    border-color: rgba(208,25,25,0.8);
-    box-shadow: 0 0 0 4px rgba(208,25,25,0.14);
-  }
+        .sectionActions { margin-top: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
-  .fineprint { color: rgba(15,23,42,0.55); font-size: 11px; line-height: 1.35; }
-  .status { min-height: 16px; font-size: 12px; color: rgba(15,23,42,0.70); }
-  .status.success { color: #15803d; }
-  .status.error { color: #b91c1c; }
+        .grid2 { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .note { background: #fff; border: 1px solid rgba(11,18,32,0.10); border-radius: 18px; padding: 16px; }
+        .noteTitle { font-weight: 900; margin-bottom: 6px; }
+        .noteText { color: rgba(11,18,32,0.70); line-height: 1.6; }
 
-  /* Sections */
-  .section { padding: 54px 0; background: #f6f7fb; color: #0f172a; }
-  .section.alt { background: #ffffff; }
-  .sectionHead h2 { margin: 0; font-size: 30px; letter-spacing: -0.4px; font-weight: 900; }
-  .sectionHead p { margin: 10px 0 0; color: rgba(15,23,42,0.70); max-width: 74ch; line-height: 1.65; }
+        .steps { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .step { background: #fff; border: 1px solid rgba(11,18,32,0.10); border-radius: 18px; padding: 16px; display: flex; gap: 12px; }
+        .stepNum { width: 44px; height: 44px; border-radius: 14px; background: rgba(208,25,25,0.10); display: grid; place-items: center; font-weight: 900; color: #d01919; }
+        .stepTitle { font-weight: 900; margin-bottom: 4px; }
+        .stepText { color: rgba(11,18,32,0.70); line-height: 1.6; }
 
-  .cards { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .card {
-    background: #fff;
-    border: 1px solid rgba(15,23,42,0.10);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 14px 30px rgba(15,23,42,0.06);
-  }
-  .cardTitle { font-weight: 900; margin-bottom: 6px; }
-  .cardText { color: rgba(15,23,42,0.70); line-height: 1.6; }
+        .contact { margin-top: 18px; display: grid; grid-template-columns: 1fr 0.95fr; gap: 14px; align-items: start; }
+        .contact p { margin-top: 10px; color: rgba(11,18,32,0.70); line-height: 1.65; }
 
-  .sectionCta { margin-top: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .contactBox { margin-top: 14px; background: #fff; border: 1px solid rgba(11,18,32,0.10); border-radius: 18px; padding: 14px; }
+        .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(11,18,32,0.06); }
+        .row:last-child { border-bottom: none; }
+        .muted { color: rgba(11,18,32,0.60); }
+        .strong { font-weight: 900; }
 
-  .grid2 { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .bullet { background: #fff; border: 1px solid rgba(15,23,42,0.10); border-radius: 16px; padding: 16px; }
-  .bulletTitle { font-weight: 900; margin-bottom: 6px; }
-  .bulletText { color: rgba(15,23,42,0.70); line-height: 1.6; }
+        .smallMuted { margin-top: 10px; color: rgba(11,18,32,0.55); font-size: 12px; line-height: 1.45; }
 
-  .steps { margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .step { background: #fff; border: 1px solid rgba(15,23,42,0.10); border-radius: 16px; padding: 16px; display: flex; gap: 12px; }
-  .stepNum {
-    width: 44px; height: 44px; border-radius: 14px;
-    background: rgba(208,25,25,0.10);
-    display: grid; place-items: center;
-    font-weight: 900; color: #d01919;
-  }
-  .stepTitle { font-weight: 900; margin-bottom: 4px; }
-  .stepText { color: rgba(15,23,42,0.70); line-height: 1.6; }
+        .footer { margin-top: 34px; padding-top: 18px; border-top: 1px solid rgba(11,18,32,0.10); display: flex; justify-content: space-between; color: rgba(11,18,32,0.60); font-size: 13px; }
+        .footerLinks { display: flex; gap: 8px; align-items: center; }
+        .footerLinks a:hover { color: #0b1220; }
 
-  .contactGrid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 14px; align-items: start; }
-  .contactTitle { margin: 0; font-size: 30px; letter-spacing: -0.4px; font-weight: 900; }
-  .contactText { margin-top: 10px; color: rgba(15,23,42,0.70); line-height: 1.65; }
-  .contactBox { margin-top: 14px; background: #fff; border: 1px solid rgba(15,23,42,0.10); border-radius: 16px; padding: 14px; }
-  .contactRow { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(15,23,42,0.06); }
-  .contactRow:last-child { border-bottom: none; }
-  .contactLabel { color: rgba(15,23,42,0.60); }
-  .contactValue { font-weight: 900; color: #0f172a; }
-
-  .contactForm {
-    background: #fff;
-    border: 1px solid rgba(15,23,42,0.10);
-    border-radius: 18px;
-    padding: 16px;
-    box-shadow: 0 18px 40px rgba(15,23,42,0.08);
-  }
-
-  .footer {
-    margin-top: 34px; padding-top: 18px;
-    border-top: 1px solid rgba(15,23,42,0.10);
-    display: flex; justify-content: space-between;
-    color: rgba(15,23,42,0.60);
-    font-size: 13px;
-  }
-  .footerRight { display: flex; gap: 8px; align-items: center; }
-  .footerRight a:hover { color: #0f172a; }
-
-  @media (max-width: 980px) {
-    .nav { display: none; }
-    .heroInner { grid-template-columns: 1fr; }
-    .heroPanel { position: relative; top: 0; }
-    .heroMeta { grid-template-columns: 1fr; }
-    .cards { grid-template-columns: 1fr; }
-    .grid2 { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .contactGrid { grid-template-columns: 1fr; }
-    h1 { font-size: 34px; }
-  }
-  @media (min-width: 1024px) {
-    .nav { display: flex; }
-  }
-`}</style>
-
+        @media (max-width: 980px) {
+          .nav { display: none; }
+          .heroInner { grid-template-columns: 1fr; }
+          .trustRow { grid-template-columns: 1fr; }
+          .grid3 { grid-template-columns: 1fr; }
+          .grid2 { grid-template-columns: 1fr; }
+          .steps { grid-template-columns: 1fr; }
+          .contact { grid-template-columns: 1fr; }
+          .h1 { font-size: 36px; }
+        }
+        @media (min-width: 1024px) {
+          .nav { display: flex; }
+        }
+      `}</style>
     </>
   );
 }
