@@ -52,7 +52,11 @@ export default function Home() {
         <header className="header">
           <div className="wrap headerInner">
             <a className="brand" href="#top" aria-label="АРМСПЕЦ">
-              <div className="logoMark" />
+              <img
+  src="/logo.png"
+  alt="АРМСПЕЦ"
+  className="logoImg"
+/>
               <div className="brandText">
                 <div className="brandName">АРМСПЕЦ</div>
                 <div className="brandSub">строительная компания</div>
@@ -617,6 +621,11 @@ export default function Home() {
         @media (min-width: 1024px) {
           .nav { display: flex; }
         }
+        .logoImg {
+  height: 34px;
+  width: auto;
+  display: block;
+}
       `}</style>
     </>
   );
