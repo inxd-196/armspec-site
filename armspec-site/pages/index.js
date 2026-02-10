@@ -385,7 +385,7 @@ export default function Home() {
                     <div className="cardTitle">Оставить заявку</div>
                     <div className="cardDesc">Имя и телефон — остальное уточним по звонку.</div>
 
-                    <form onSubmit={submit} className="form">
+                    <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
                       <label className="field">
                         <span>Имя</span>
                         <input
