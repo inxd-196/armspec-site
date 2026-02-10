@@ -3,29 +3,11 @@ import { useMemo, useState } from "react";
 
 export default function Home() {
   const [form, setForm] = useState({ name: "", phone: "" });
-  const [status, setStatus] = useState({ type: "idle", message: "" });
+  
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
-  async function submit(e) {
-    e.preventDefault();
-    setStatus({ type: "loading", message: "Отправляем..." });
-
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data?.ok) throw new Error("bad");
-
-      setStatus({ type: "success", message: "Заявка отправлена. Мы свяжемся с вами." });
-      setForm({ name: "", phone: "" });
-    } catch {
-      setStatus({ type: "error", message: "Не удалось отправить. Попробуйте позже или позвоните нам." });
-    }
+ 
   }
 
   return (
@@ -138,6 +120,7 @@ export default function Home() {
                     <label className="field">
                       <span>Имя</span>
                       <input
+name="name"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Например, Иван"
@@ -148,6 +131,7 @@ export default function Home() {
                     <label className="field">
                       <span>Телефон</span>
                       <input
+name="phone"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         placeholder="+7 (___) ___-__-__"
@@ -157,11 +141,13 @@ export default function Home() {
                       />
                     </label>
 
-                    <button className="btn btnPrimary btnFull" type="submit" disabled={status.type === "loading"}>
-                      {status.type === "loading" ? "Отправляем..." : "Отправить"}
-                    </button>
+                    <button className="btn btnPrimary btnFull" type="submit">
+  Отправить
 
-                    <div className={`status ${status.type}`}>{status.message}</div>
+
+                    </button> 
+
+                    
 
                     <div className="fineprint">
                       Нажимая «Отправить», вы соглашаетесь на обработку контактных данных для связи.
@@ -388,8 +374,7 @@ export default function Home() {
                     <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
                       <label className="field">
                         <span>Имя</span>
-                        <input
-name="name"
+                        <input name="name"
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           placeholder="Как к вам обращаться"
@@ -399,8 +384,7 @@ name="name"
 
                       <label className="field">
                         <span>Телефон</span>
-                        <input
-name="phone"
+                        <input name="phone"
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
                           placeholder="+7 (___) ___-__-__"
@@ -410,11 +394,10 @@ name="phone"
                         />
                       </label>
 
-                      <button className="btn btnPrimary btnFull" type="submit" disabled={status.type === "loading"}>
-                        {status.type === "loading" ? "Отправляем..." : "Отправить"}
+                      
                       </button>
 
-                      <div className={`status ${status.type}`}>{status.message}</div>
+                      
 
                       <div className="fineprint">Можно и без формы — просто позвоните.</div>
                     </form>
