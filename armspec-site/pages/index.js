@@ -123,8 +123,8 @@ export default function Home() {
 name="name"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Например, Иван"
-                        autoComplete="name"
+                        placeholder="Как к вам обращаться"
+                      
                       />
                     </label>
 
