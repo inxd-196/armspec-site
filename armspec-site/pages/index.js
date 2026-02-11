@@ -478,15 +478,16 @@ export default function Home() {
         .fineprint { color: rgba(11,18,32,0.55); font-size: 11px; line-height: 1.35; }
 
         .heroPhoto {
-          height: 180px;
-          border-radius: 18px;
-          border: 1px solid rgba(11,18,32,0.12);
-          overflow: hidden;
-          background:
-            linear-gradient(135deg, rgba(11,18,32,0.08), rgba(11,18,32,0.02)),
-            repeating-linear-gradient(90deg, rgba(11,18,32,0.08) 0, rgba(11,18,32,0.08) 1px, transparent 1px, transparent 14px);
-          position: relative;
-        }
+  height: 220px;
+  border-radius: 18px;
+  border: 1px solid rgba(11,18,32,0.12);
+  overflow: hidden;
+  background-image: url('/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.heroPhotoLabel { display: none; }
         .heroPhotoOverlay {
           position: absolute; inset: 0;
           background: radial-gradient(700px 220px at 30% 20%, rgba(208,25,25,0.18), transparent 55%);
