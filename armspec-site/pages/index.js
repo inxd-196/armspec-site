@@ -140,6 +140,8 @@ export default function Home() {
           <section className="section" id="rent">
             <div className="wrap">
               <div className="sectionHead">
+            <div className="sectionBanner" style={{ backgroundImage: "url('/rent.jpg')" }} />
+            
                 <h2>Аренда спецтехники</h2>
                 <p>Самосвалы и тракторы. Подберём технику под условия площадки и задачу.</p>
               </div>
@@ -187,6 +189,7 @@ export default function Home() {
           <section className="section sectionAlt" id="works">
             <div className="wrap">
               <div className="sectionHead">
+            <div className="sectionBanner" style={{ backgroundImage: "url('/works.jpg')" }} />
                 <h2>Асфальтирование и благоустройство</h2>
                 <p>Оцениваем объём и условия, согласуем порядок работ и выполняем без лишней суеты.</p>
               </div>
@@ -246,7 +249,7 @@ export default function Home() {
                 </div>
                 <div className="note">
                   <div className="noteTitle">Связь по делу</div>
-                  <div className="noteText">Подтверждаем старт, уточняем детали в процессе, не “исчезаем”.</div>
+                  <div className="noteText">Подтверждаем старт, уточняем детали в процессе.</div>
                 </div>
                 <div className="note">
                   <div className="noteTitle">Документы по запросу</div>
@@ -326,7 +329,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="smallMuted">* Заявка с формы будет отправлена на почту (через Formspree).</div>
+                  <div className="smallMuted">* </div>
                 </div>
 
                 <div className="contactRight">
