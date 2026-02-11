@@ -382,7 +382,7 @@ export default function Home() {
       <style jsx>{`
       .sectionBanner{
   margin-top: 14px;
-  height: 270px;              /* было мало — поэтому режет */
+  height: 320px;              /* было мало — поэтому режет */
   border-radius: 18px;
   border: 1px solid rgba(11,18,32,0.10);
   overflow: hidden;
