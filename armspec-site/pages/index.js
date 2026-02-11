@@ -331,7 +331,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="smallMuted">* </div>
+                  <div className="smallMuted"> </div>
                 </div>
 
                 <div className="contactRight">
