@@ -101,6 +101,7 @@ export default function Home() {
                   <div className="cardDesc">Имя и телефон — и мы перезвоним.</div>
 
                   <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
+                    <input type="hidden" name="_next" value="https://armspec.ru/thanks" />
                     <label className="field">
                       <span>Имя</span>
                       <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
@@ -338,6 +339,7 @@ export default function Home() {
                     <div className="cardDesc">Имя и телефон — остальное уточним по звонку.</div>
 
                     <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
+            <input type="hidden" name="_next" value="https://armspec.ru/thanks" />
                       <label className="field">
                         <span>Имя</span>
                         <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
