@@ -380,6 +380,14 @@ export default function Home() {
       </div>
 
       <style jsx>{`
+      .sectionBanner{
+  margin-top: 14px;
+  height: 180px;
+  border-radius: 18px;
+  border: 1px solid rgba(11,18,32,0.10);
+  background-size: cover;
+  background-position: center;
+}
         :global(html, body) { margin: 0; padding: 0; background: #ffffff; }
         :global(*) { box-sizing: border-box; }
         :global(a) { color: inherit; text-decoration: none; }
