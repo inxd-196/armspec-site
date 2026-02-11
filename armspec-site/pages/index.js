@@ -67,7 +67,7 @@ export default function Home() {
 
                 <p className="lead">
                   Аренда спецтехники и строительные работы. Оставьте контакты — уточним задачу и предложим понятный
-                  вариант без “сказок”.
+                  вариант.
                 </p>
 
                 <div className="heroActions">
@@ -82,7 +82,7 @@ export default function Home() {
                 <div className="trustRow">
                   <div className="trustItem">
                     <div className="trustTitle">Быстрый контакт</div>
-                    <div className="trustText">Заявка приходит на почту — увидите сразу</div>
+                    <div className="trustText">Мы получаем заявку мгновенно и оперативно связываемся с вами.</div>
                   </div>
                   <div className="trustItem">
                     <div className="trustTitle">Понятные условия</div>
@@ -90,7 +90,7 @@ export default function Home() {
                   </div>
                   <div className="trustItem">
                     <div className="trustTitle">По делу</div>
-                    <div className="trustText">Без громких обещаний и “идеальных” сроков</div>
+                    <div className="trustText">Конкретные условия и понятные сроки.</div>
                   </div>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function Home() {
               <div className="sectionHead">
             <div className="sectionBanner" style={{ backgroundImage: "url('/works.jpg')" }} />
                 <h2>Асфальтирование и благоустройство</h2>
-                <p>Оцениваем объём и условия, согласуем порядок работ и выполняем без лишней суеты.</p>
+                <p>Оцениваем объём и условия, согласуем порядок работ.</p>
               </div>
 
               <div className="grid3">
@@ -218,7 +218,7 @@ export default function Home() {
                     <div className="tileTitle">Подготовка</div>
                     <div className="chip">Основание</div>
                   </div>
-                  <div className="tileText">Когда важно “сделать правильно” до покрытия — согласуем базу и этапы.</div>
+                  <div className="tileText">Согласуем базу и этапы.</div>
                 </div>
               </div>
 
@@ -362,7 +362,7 @@ export default function Home() {
                         Отправить
                       </button>
 
-                      <div className="fineprint">Можно и без формы — просто позвоните.</div>
+                      <div className="fineprint"> </div>
                     </form>
                   </div>
                 </div>
