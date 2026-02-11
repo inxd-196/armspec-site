@@ -102,6 +102,7 @@ export default function Home() {
 
                   <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
                     <input type="hidden" name="_next" value="https://armspec.ru/thanks" />
+                    <input type="hidden" name="_redirect" value="https://armspec.ru/thanks" />
                     <label className="field">
                       <span>Имя</span>
                       <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
@@ -340,6 +341,7 @@ export default function Home() {
 
                     <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
             <input type="hidden" name="_next" value="https://armspec.ru/thanks" />
+            <input type="hidden" name="_redirect" value="https://armspec.ru/thanks" />
                       <label className="field">
                         <span>Имя</span>
                         <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
