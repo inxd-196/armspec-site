@@ -1,14 +1,8 @@
 import Head from "next/head";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 export default function Home() {
-  const [form, setForm] = useState({ name: "", phone: "" });
-  
-
   const year = useMemo(() => new Date().getFullYear(), []);
-
- 
-  }
 
   return (
     <>
@@ -34,11 +28,7 @@ export default function Home() {
         <header className="header">
           <div className="wrap headerInner">
             <a className="brand" href="#top" aria-label="АРМСПЕЦ">
-              <img
-  src="/logo.png"
-  alt="АРМСПЕЦ"
-  className="logoImg"
-/>
+              <img src="/logo.png" alt="АРМСПЕЦ" className="logoImg" />
               <div className="brandText">
                 <div className="brandName">АРМСПЕЦ</div>
                 <div className="brandSub">строительная компания</div>
@@ -69,17 +59,15 @@ export default function Home() {
           <section className="hero">
             <div className="wrap heroInner">
               <div className="heroLeft">
-                <div className="kicker">
-                  Самосвалы • Тракторы • Асфальтирование • Благоустройство
-                </div>
+                <div className="kicker">Самосвалы • Тракторы • Асфальтирование • Благоустройство</div>
 
                 <h1 className="h1">
                   Два направления <span className="accent">в одном месте</span>
                 </h1>
 
                 <p className="lead">
-                  Аренда спецтехники и строительные работы. Оставьте контакты — уточним задачу
-                  и предложим понятный вариант без “сказок”.
+                  Аренда спецтехники и строительные работы. Оставьте контакты — уточним задачу и предложим понятный
+                  вариант без “сказок”.
                 </p>
 
                 <div className="heroActions">
@@ -94,7 +82,7 @@ export default function Home() {
                 <div className="trustRow">
                   <div className="trustItem">
                     <div className="trustTitle">Быстрый контакт</div>
-                    <div className="trustText">Заявка прилетает в Telegram (подключим дальше)</div>
+                    <div className="trustText">Заявка приходит на почту — увидите сразу</div>
                   </div>
                   <div className="trustItem">
                     <div className="trustTitle">Понятные условия</div>
@@ -112,38 +100,26 @@ export default function Home() {
                   <div className="cardTitle">Быстрая заявка</div>
                   <div className="cardDesc">Имя и телефон — и мы перезвоним.</div>
 
-                  <form
-  action="https://formspree.io/f/meeloypa"
-  method="POST"
-  className="form"
->
+                  <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
                     <label className="field">
                       <span>Имя</span>
-                      <input
-  name="name"
-  placeholder="Как к вам обращаться"
-
-                      />
+                      <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
                     </label>
 
                     <label className="field">
                       <span>Телефон</span>
                       <input
-  name="phone"
-  placeholder="+7 (___) ___-__-__"
-  required
-/>
-
-                      
+                        name="phone"
+                        placeholder="+7 (___) ___-__-__"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        required
+                      />
                     </label>
 
                     <button className="btn btnPrimary btnFull" type="submit">
-  Отправить
-
-
-                    </button> 
-
-                    
+                      Отправить
+                    </button>
 
                     <div className="fineprint">
                       Нажимая «Отправить», вы соглашаетесь на обработку контактных данных для связи.
@@ -160,7 +136,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* SERVICES SPLIT */}
+          {/* RENT */}
           <section className="section" id="rent">
             <div className="wrap">
               <div className="sectionHead">
@@ -174,9 +150,7 @@ export default function Home() {
                     <div className="tileTitle">Самосвалы</div>
                     <div className="chip">Перевозка/вывоз</div>
                   </div>
-                  <div className="tileText">
-                    Грунт, щебень, сыпучие материалы. Уточним объём, плечо и порядок работ.
-                  </div>
+                  <div className="tileText">Грунт, щебень, сыпучие материалы. Уточним объём, плечо и порядок работ.</div>
                 </div>
 
                 <div className="tile">
@@ -184,9 +158,7 @@ export default function Home() {
                     <div className="tileTitle">Тракторы</div>
                     <div className="chip">Планировка</div>
                   </div>
-                  <div className="tileText">
-                    Подготовка территории, расчистка, выравнивание. Учитываем подъезд и грунт.
-                  </div>
+                  <div className="tileText">Подготовка территории, расчистка, выравнивание. Учитываем подъезд и грунт.</div>
                 </div>
 
                 <div className="tile">
@@ -211,6 +183,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* WORKS */}
           <section className="section sectionAlt" id="works">
             <div className="wrap">
               <div className="sectionHead">
@@ -224,9 +197,7 @@ export default function Home() {
                     <div className="tileTitle">Асфальтирование</div>
                     <div className="chip">Покрытие</div>
                   </div>
-                  <div className="tileText">
-                    Уточняем площадь, основание и требования. Согласуем последовательность работ.
-                  </div>
+                  <div className="tileText">Уточняем площадь, основание и требования. Согласуем последовательность работ.</div>
                 </div>
 
                 <div className="tile">
@@ -234,9 +205,7 @@ export default function Home() {
                     <div className="tileTitle">Благоустройство</div>
                     <div className="chip">Территория</div>
                   </div>
-                  <div className="tileText">
-                    Планировка, подготовка площадки, сопутствующие работы по территории.
-                  </div>
+                  <div className="tileText">Планировка, подготовка площадки, сопутствующие работы по территории.</div>
                 </div>
 
                 <div className="tile">
@@ -244,9 +213,7 @@ export default function Home() {
                     <div className="tileTitle">Подготовка</div>
                     <div className="chip">Основание</div>
                   </div>
-                  <div className="tileText">
-                    Когда важно “сделать правильно” до покрытия — согласуем базу и этапы.
-                  </div>
+                  <div className="tileText">Когда важно “сделать правильно” до покрытия — согласуем базу и этапы.</div>
                 </div>
               </div>
 
@@ -275,15 +242,11 @@ export default function Home() {
                 </div>
                 <div className="note">
                   <div className="noteTitle">Техника под задачу</div>
-                  <div className="noteText">
-                    Подбираем вариант под площадку и объём, а не “что свободно”.
-                  </div>
+                  <div className="noteText">Подбираем вариант под площадку и объём, а не “что свободно”.</div>
                 </div>
                 <div className="note">
                   <div className="noteTitle">Связь по делу</div>
-                  <div className="noteText">
-                    Подтверждаем старт, уточняем детали в процессе, не “исчезаем”.
-                  </div>
+                  <div className="noteText">Подтверждаем старт, уточняем детали в процессе, не “исчезаем”.</div>
                 </div>
                 <div className="note">
                   <div className="noteTitle">Документы по запросу</div>
@@ -315,7 +278,9 @@ export default function Home() {
                   <div className="stepNum">02</div>
                   <div>
                     <div className="stepTitle">Оценка</div>
-                    <div className="stepText">Согласуем технику/объём и порядок работ. Если нужно — договоримся о выезде.</div>
+                    <div className="stepText">
+                      Согласуем технику/объём и порядок работ. Если нужно — договоримся о выезде.
+                    </div>
                   </div>
                 </div>
                 <div className="step">
@@ -329,7 +294,9 @@ export default function Home() {
                   <div className="stepNum">04</div>
                   <div>
                     <div className="stepTitle">Закрытие</div>
-                    <div className="stepText">Подтверждаем объём и формат, передаём документы (если нужно), остаёмся на связи.</div>
+                    <div className="stepText">
+                      Подтверждаем объём и формат, передаём документы (если нужно), остаёмся на связи.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -342,24 +309,24 @@ export default function Home() {
               <div className="contact">
                 <div className="contactLeft">
                   <h2>Контакты</h2>
-                  <p>
-                    Быстрее всего — оставить телефон: мы увидим заявку и перезвоним. Можно просто позвонить сразу.
-                  </p>
+                  <p>Быстрее всего — оставить телефон: мы увидим заявку и перезвоним. Можно просто позвонить сразу.</p>
 
                   <div className="contactBox">
                     <div className="row">
                       <div className="muted">Телефон</div>
-                      <a className="strong" href="tel:+79533884273">+7 (953) 388-42-73</a>
+                      <a className="strong" href="tel:+79533884273">
+                        +7 (953) 388-42-73
+                      </a>
                     </div>
                     <div className="row">
                       <div className="muted">Email</div>
-                      <a className="strong" href="mailto:oooarmspec1317@mail.ru">oooarmspec1317@mail.ru</a>
+                      <a className="strong" href="mailto:oooarmspec1317@mail.ru">
+                        oooarmspec1317@mail.ru
+                      </a>
                     </div>
                   </div>
 
-                  <div className="smallMuted">
-                    * Telegram-получение заявок подключим следующим шагом (чтобы всё приходило тебе в чат).
-                  </div>
+                  <div className="smallMuted">* Заявка с формы будет отправлена на почту (через Formspree).</div>
                 </div>
 
                 <div className="contactRight">
@@ -370,19 +337,13 @@ export default function Home() {
                     <form action="https://formspree.io/f/meeloypa" method="POST" className="form">
                       <label className="field">
                         <span>Имя</span>
-                        <input name="name"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          placeholder="Как к вам обращаться"
-                          autoComplete="name"
-                        />
+                        <input name="name" placeholder="Как к вам обращаться" autoComplete="name" />
                       </label>
 
                       <label className="field">
                         <span>Телефон</span>
-                        <input name="phone"
-                          value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        <input
+                          name="phone"
                           placeholder="+7 (___) ___-__-__"
                           inputMode="tel"
                           autoComplete="tel"
@@ -390,10 +351,9 @@ export default function Home() {
                         />
                       </label>
 
-                      
+                      <button className="btn btnPrimary btnFull" type="submit">
+                        Отправить
                       </button>
-
-                      
 
                       <div className="fineprint">Можно и без формы — просто позвоните.</div>
                     </form>
@@ -404,8 +364,10 @@ export default function Home() {
               <footer className="footer">
                 <div>© {year} АРМСПЕЦ</div>
                 <div className="footerLinks">
-                  <a href="#rent">Аренда</a><span>·</span>
-                  <a href="#works">Работы</a><span>·</span>
+                  <a href="#rent">Аренда</a>
+                  <span>·</span>
+                  <a href="#works">Работы</a>
+                  <span>·</span>
                   <a href="#contacts">Контакты</a>
                 </div>
               </footer>
@@ -433,7 +395,6 @@ export default function Home() {
         }
         .headerInner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
         .brand { display: flex; gap: 12px; align-items: center; }
-        .logoMark { width: 34px; height: 34px; border-radius: 10px; background: #d01919; }
         .brandName { font-weight: 900; letter-spacing: 0.2px; }
         .brandSub { font-size: 12px; color: rgba(11,18,32,0.60); margin-top: 2px; }
 
@@ -514,9 +475,6 @@ export default function Home() {
         }
         .field input:focus { border-color: rgba(208,25,25,0.8); box-shadow: 0 0 0 4px rgba(208,25,25,0.14); }
 
-        .status { min-height: 16px; font-size: 12px; color: rgba(11,18,32,0.70); }
-        .status.success { color: #15803d; }
-        .status.error { color: #b91c1c; }
         .fineprint { color: rgba(11,18,32,0.55); font-size: 11px; line-height: 1.35; }
 
         .heroPhoto {
@@ -606,11 +564,12 @@ export default function Home() {
         @media (min-width: 1024px) {
           .nav { display: flex; }
         }
+
         .logoImg {
-  height: 34px;
-  width: auto;
-  display: block;
-}
+          height: 34px;
+          width: auto;
+          display: block;
+        }
       `}</style>
     </>
   );
