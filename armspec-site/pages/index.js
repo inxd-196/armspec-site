@@ -314,7 +314,7 @@ export default function Home() {
               <div className="contact">
                 <div className="contactLeft">
                   <h2>Контакты</h2>
-                  <p>Быстрее всего — оставить телефон: мы увидим заявку и перезвоним. Можно просто позвонить сразу.</p>
+                  <p></p>
 
                   <div className="contactBox">
                     <div className="row">
