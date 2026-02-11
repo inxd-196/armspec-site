@@ -382,11 +382,13 @@ export default function Home() {
       <style jsx>{`
       .sectionBanner{
   margin-top: 14px;
-  height: 180px;
+  height: 240px;              /* было мало — поэтому режет */
   border-radius: 18px;
   border: 1px solid rgba(11,18,32,0.10);
+  overflow: hidden;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center 35%;  /* ВОТ ЭТО ГЛАВНОЕ */
 }
         :global(html, body) { margin: 0; padding: 0; background: #ffffff; }
         :global(*) { box-sizing: border-box; }
