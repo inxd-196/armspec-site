@@ -388,7 +388,7 @@ export default function Home() {
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 35%;  /* ВОТ ЭТО ГЛАВНОЕ */
+  background-position: center 50%;  /* ВОТ ЭТО ГЛАВНОЕ */
 }
         :global(html, body) { margin: 0; padding: 0; background: #ffffff; }
         :global(*) { box-sizing: border-box; }
