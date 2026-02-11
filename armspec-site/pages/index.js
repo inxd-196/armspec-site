@@ -120,25 +120,21 @@ export default function Home() {
                     <label className="field">
                       <span>Имя</span>
                       <input
-name="name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Как к вам обращаться"
-                      
+  name="name"
+  placeholder="Как к вам обращаться"
+
                       />
                     </label>
 
                     <label className="field">
                       <span>Телефон</span>
                       <input
-name="phone"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+7 (___) ___-__-__"
-                        inputMode="tel"
-                        autoComplete="tel"
-                        required
-                      />
+  name="phone"
+  placeholder="+7 (___) ___-__-__"
+  required
+/>
+
+                      
                     </label>
 
                     <button className="btn btnPrimary btnFull" type="submit">
