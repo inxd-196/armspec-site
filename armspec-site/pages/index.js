@@ -59,7 +59,7 @@ export default function Home() {
           <section className="hero">
             <div className="wrap heroInner">
               <div className="heroLeft">
-                <div className="kicker">Самосвалы • Тракторы • Асфальтирование • Благоустройство</div>
+                <div className="kicker">Самосвалы • Трактора • Асфальтирование • Благоустройство</div>
 
                 <h1 className="h1">
                   Два направления <span className="accent">в одном месте</span>
@@ -154,12 +154,12 @@ export default function Home() {
                     <div className="tileTitle">Самосвалы</div>
                     <div className="chip">Перевозка/вывоз</div>
                   </div>
-                  <div className="tileText">Грунт, щебень, сыпучие материалы. Уточним объём, плечо и порядок работ.</div>
+                  <div className="tileText">Уточним объём, плечо и порядок работ.</div>
                 </div>
 
                 <div className="tile">
                   <div className="tileTop">
-                    <div className="tileTitle">Тракторы</div>
+                    <div className="tileTitle">Трактора</div>
                     <div className="chip">Планировка</div>
                   </div>
                   <div className="tileText">Подготовка территории, расчистка, выравнивание. Учитываем подъезд и грунт.</div>
@@ -200,7 +200,7 @@ export default function Home() {
                 <div className="tile">
                   <div className="tileTop">
                     <div className="tileTitle">Асфальтирование</div>
-                    <div className="chip">Покрытие</div>
+               
                   </div>
                   <div className="tileText">Уточняем площадь, основание и требования. Согласуем последовательность работ.</div>
                 </div>
@@ -208,7 +208,7 @@ export default function Home() {
                 <div className="tile">
                   <div className="tileTop">
                     <div className="tileTitle">Благоустройство</div>
-                    <div className="chip">Территория</div>
+                    
                   </div>
                   <div className="tileText">Планировка, подготовка площадки, сопутствующие работы по территории.</div>
                 </div>
@@ -216,7 +216,7 @@ export default function Home() {
                 <div className="tile">
                   <div className="tileTop">
                     <div className="tileTitle">Подготовка</div>
-                    <div className="chip">Основание</div>
+                   
                   </div>
                   <div className="tileText">Согласуем базу и этапы.</div>
                 </div>
