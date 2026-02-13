@@ -160,7 +160,7 @@ export default function Home() {
                 <div className="tile">
                   <div className="tileTop">
                     <div className="tileTitle">Трактора</div>
-                    <div className="chip">Планировка</div>
+                    <div className="chip">Техника</div>
                   </div>
                   <div className="tileText">Подготовка территории, расчистка, выравнивание. Учитываем подъезд и грунт.</div>
                 </div>
@@ -369,7 +369,7 @@ export default function Home() {
               </div>
 
               <footer className="footer">
-                <div>© {year} АРМСПЕЦ</div>
+                <div>© {year} ООО «АРМ-СПЕЦТЕХ»</div>
                 <div className="footerLinks">
                   <a href="#rent">Аренда</a>
                   <span>·</span>
