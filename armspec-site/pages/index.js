@@ -30,8 +30,8 @@ export default function Home() {
             <a className="brand" href="#top" aria-label="АРМСПЕЦ">
               <img src="/logo.png" alt="АРМСПЕЦ" className="logoImg" />
               <div className="brandText">
-                <div className="brandName">АРМСПЕЦ</div>
-                <div className="brandSub">строительная компания</div>
+                <div className="brandName">ООО «АРМ-СПЕЦТЕХ»</div>
+                <div className="brandSub"></div>
               </div>
             </a>
 
